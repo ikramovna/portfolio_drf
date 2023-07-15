@@ -13,7 +13,7 @@ DEBUG = True  # os.getenv('DEBUG')
 
 load_dotenv()
 
-ALLOWED_HOSTS = ['ikramovna.pythonanywhere.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['ikramovna.pythonanywhere.com', 'localhost', '127.0.0.1', 'shohsana.me']
 
 MY_APPS = [
     'apps.users',
@@ -120,3 +120,14 @@ EMAIL_PORT = os.getenv('EMAIL_PORT')
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
+
+CELERY_BROKER_URL = 'redis://redis:6379/0'
+CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
+
+CELERY_BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
+
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
