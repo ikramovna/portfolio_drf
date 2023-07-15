@@ -2,7 +2,6 @@ import os
 
 from celery import shared_task
 from django.core.mail import send_mail
-from django.shortcuts import get_object_or_404
 
 
 # Send email

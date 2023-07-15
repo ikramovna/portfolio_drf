@@ -124,6 +124,9 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
 CELERY_BROKER_URL = 'redis://redis:6379/0'
 CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
 
+# Celery Configuration Options
+CELERY_TIMEZONE = "Asia/Tashkent"
+
 CELERY_BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
 
 CELERY_ACCEPT_CONTENT = ['json']
