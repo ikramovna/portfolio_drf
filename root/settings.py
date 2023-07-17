@@ -7,13 +7,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv()
 
-SECRET_KEY = 'django-insecure-ve8a==fwfi#i6ig2n$p@%v1ewjd7@%it=w9^ga)=t+q*#s!k%c'  # os.getenv('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = True  # os.getenv('DEBUG')
+DEBUG = os.getenv('DEBUG')
 
-load_dotenv()
 
-ALLOWED_HOSTS = ['ikramovna.pythonanywhere.com', 'localhost', '127.0.0.1', 'shohsana.me']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'shohsana.me']
 
 MY_APPS = [
     'apps.users',
@@ -132,10 +131,12 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
 
+
+# Celery Configuration Options
+
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
-# Celery Configuration Options
 CELERY_TIMEZONE = "Asia/Tashkent"
 
 CELERY_BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}

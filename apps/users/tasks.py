@@ -13,7 +13,7 @@ def send_email_customer(email, message, name, phone):
     '''
     print(msg)
     send_mail(
-        subject="Hello",
+        subject="Portfolio",
         message=msg,
         from_email=os.getenv("EMAIL_HOST_USER"),
         recipient_list=[email],

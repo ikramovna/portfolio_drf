@@ -2,7 +2,7 @@
         Login ✅
 User -- Logout ✅
         Reset Password ✅
-        Email Verification
+        Email Verification ✅
 
 
 
@@ -10,3 +10,4 @@ User -- Logout ✅
            All Project ✅
 Project -- Project Detail ✅
            Project Search ✅
+           Send Email with Django-Celery ✅

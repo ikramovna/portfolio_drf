@@ -14,7 +14,8 @@ class UserSerializer(ModelSerializer):
 class AllProjectsModelSerializer(ModelSerializer):
     class Meta:
         model = Project
-        fields = ('id', 'title', 'description', 'image')
+        fields = (
+        'id', 'title_en', 'title_ru', 'title_uz', 'description_en', 'description_ru', 'description_uz', 'image')
 
 
 class ProjectDetailModelSerializer(ModelSerializer):
@@ -28,5 +29,3 @@ class SendEmailSerializer(Serializer):
     name = CharField(max_length=100)
     phone = CharField(max_length=55)
     email = EmailField()
-
-
