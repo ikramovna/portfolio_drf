@@ -6,7 +6,6 @@ class Project(Model):
     description = TextField()
     keyword = TextField()
     image = ImageField(upload_to='products/images/')
-    image1 = ImageField(upload_to='products/images/')
     url = URLField()
 
     def __str__(self):

@@ -14,7 +14,7 @@ class UserSerializer(ModelSerializer):
 class AllProjectsModelSerializer(ModelSerializer):
     class Meta:
         model = Project
-        fields = 'id', 'title', 'description', 'image', 'image1'
+        fields = ('id', 'title', 'description', 'image')
 
 
 class ProjectDetailModelSerializer(ModelSerializer):

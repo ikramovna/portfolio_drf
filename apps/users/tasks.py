@@ -17,5 +17,5 @@ def send_email_customer(email, message, name, phone):
         message=msg,
         from_email=os.getenv("EMAIL_HOST_USER"),
         recipient_list=[email],
-        fail_silently=False,
+        # fail_silently=False,
     )
