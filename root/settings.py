@@ -11,7 +11,6 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = os.getenv('DEBUG')
 
-
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'shohsana.me']
 
 MY_APPS = [
@@ -131,7 +130,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
 
-
 # Celery Configuration Options
 
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
@@ -146,3 +144,9 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend'
+    ]
+}

@@ -85,7 +85,7 @@ class ProjectSearchListAPIView(ListAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectDetailModelSerializer
     filter_backends = [SearchFilter]
-    search_fields = ['title', 'keyword']
+    search_fields = ['title_en', 'title_uz', 'title_ru', 'keyword_uz', 'keyword_en', 'keyword_ru']
 
 
 class SendMailAPIView(APIView):
