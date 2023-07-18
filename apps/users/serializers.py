@@ -1,6 +1,5 @@
 from django.contrib.auth.models import User
-from rest_framework.fields import CharField, EmailField
-from rest_framework.serializers import ModelSerializer, Serializer
+from rest_framework.serializers import ModelSerializer, Serializer, CharField, EmailField
 
 from apps.users.models import Project
 
@@ -9,6 +8,15 @@ class UserSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'email', 'username')
+
+
+class RegisterSerializer(ModelSerializer):
+    password1 = CharField()
+    password2 = CharField()
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email', 'username', 'password1', 'password2')
 
 
 class AllProjectsModelSerializer(ModelSerializer):

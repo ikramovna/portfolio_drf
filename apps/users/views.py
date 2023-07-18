@@ -1,8 +1,9 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_decode
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework.filters import SearchFilter
-from rest_framework.generics import RetrieveAPIView, ListAPIView
+from rest_framework.generics import RetrieveAPIView, ListAPIView, GenericAPIView
 from rest_framework.permissions import (IsAuthenticated)
 from rest_framework.response import (Response)
 from rest_framework.views import (APIView)
@@ -10,13 +11,16 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework_simplejwt.tokens import (RefreshToken)
 
 from apps.users.models import Project
-from apps.users.serializers import AllProjectsModelSerializer, ProjectDetailModelSerializer, SendEmailSerializer
+from apps.users.serializers import AllProjectsModelSerializer, ProjectDetailModelSerializer, SendEmailSerializer, \
+    UserSerializer, RegisterSerializer
 from apps.users.services import (register_service, reset_password_service, reset_password_confirm_service)
 from apps.users.tasks import send_email_customer
 
 
 # Register API
-class RegisterAPIView(APIView):
+class RegisterAPIView(GenericAPIView):
+    serializer_class = RegisterSerializer
+    permission_classes = ()
     def post(self, request):
         response = register_service(request.data, request)
         if response['success']:
@@ -88,15 +92,20 @@ class ProjectSearchListAPIView(ListAPIView):
     search_fields = ['title_en', 'title_uz', 'title_ru', 'keyword_uz', 'keyword_en', 'keyword_ru']
 
 
-class SendMailAPIView(APIView):
+class SendMailAPIView(GenericAPIView):
+    serializer_class = SendEmailSerializer
+    permission_classes = ()
+    # @swagger_auto_schema(query_serializer=SendEmailSerializer, request_body=4)
     def post(self, request):
         try:
-            serializer = SendEmailSerializer(data=request.data)
+            serializer = self.serializer_class(data=request.data)
             serializer.is_valid(raise_exception=True)
             email = serializer.validated_data.get('email')
             message = serializer.validated_data.get('message')
             name = serializer.validated_data.get('name')
             phone = serializer.validated_data.get('phone')
+
+            my_email = ''
 
             send_email_customer.delay(email, message, name, phone)
         except Exception as e:
