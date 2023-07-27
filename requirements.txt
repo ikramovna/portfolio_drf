@@ -33,6 +33,7 @@ prompt-toolkit==3.0.39
 protobuf==3.20.3
 psycopg2-binary==2.9.6
 PyJWT==2.7.0
+pytest-django
 python-dateutil==2.8.2
 python-dotenv==1.0.0
 pytz==2023.3

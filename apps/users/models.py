@@ -7,7 +7,7 @@ class Project(Model):
     title = CharField(max_length=255)
     description = TextField()
     keyword = TextField()
-    image = ImageField(upload_to='products/images/')
+    image = ImageField(upload_to='products/images/', blank=True, null=True)
     url = URLField()
     slug = SlugField(max_length=255, unique=True)
 
@@ -29,5 +29,5 @@ class Project(Model):
 
         super().save(force_insert, force_update, using, update_fields)
 
-    def __str__(self):
-        return self.title
+    # def __str__(self):
+    #     return self.title

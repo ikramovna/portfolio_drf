@@ -5,7 +5,7 @@ from apps.users.views import (RegisterAPIView, LogoutAPIView, VerifyAccountAPIVi
                               ProjectSearchListAPIView, AllProjectModelViewSet, SendMailAPIView)
 
 routers = DefaultRouter()
-routers.register('project', AllProjectModelViewSet)
+routers.register('project', AllProjectModelViewSet, basename='project-list-add')
 
 urlpatterns = [
     path('', include(routers.urls)),

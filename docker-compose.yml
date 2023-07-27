@@ -3,7 +3,6 @@ version: "3.0"
 services:
   django:
     build: .
-    container_name: django
     command: gunicorn --bind 0.0.0.0:8000 root.wsgi
     volumes:
       - .:/app
