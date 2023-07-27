@@ -29,7 +29,6 @@ services:
       - POSTGRES_PORT=5432
   redis:
     image: redis:6-alpine
-    container_name: redis
     volumes:
       - redis_data:/data/
     expose:
