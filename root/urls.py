@@ -9,7 +9,6 @@ from root.settings import MEDIA_URL, MEDIA_ROOT, STATIC_URL, STATIC_ROOT
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', include('apps.userss.urls')),
     path('user/', include('apps.users.urls')),
     path('portfolio/', include('apps.portfolio.urls')),
 

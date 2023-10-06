@@ -15,8 +15,8 @@ DEBUG = os.getenv('DEBUG')
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 MY_APPS = [
-    'apps.userss',
     'apps.users',
+    'apps.portfolio',
 
 ]
 
