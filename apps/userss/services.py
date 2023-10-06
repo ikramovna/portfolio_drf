@@ -6,7 +6,7 @@ from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from apps.users.serializers import UserSerializer
+from apps.userss.serializers import UserSerializer
 
 
 def register_service(request_data, request):

@@ -1,6 +1,6 @@
 from modeltranslation.translator import register, TranslationOptions
 
-from apps.users.models import Project
+from apps.userss.models import Project
 
 
 @register(Project)

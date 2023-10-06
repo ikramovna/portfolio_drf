@@ -82,3 +82,4 @@ def test_user_registration():
 
     response = client.post(url, data, format='json')
     assert response.status_code == 201
+

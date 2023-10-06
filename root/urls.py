@@ -1,23 +1,21 @@
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from apps.users.views import ResetPasswordAPIView, PasswordResetConfirmAPIView
-from root.swagger import swagger_urls
+from root.swagger import swagger_urls, schema_view
 
 from root.settings import MEDIA_URL, MEDIA_ROOT, STATIC_URL, STATIC_ROOT
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('apps.users.urls')),
+    # path('', include('apps.userss.urls')),
+    path('user/', include('apps.users.urls')),
+    path('portfolio/', include('apps.portfolio.urls')),
 
-    # JWT
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/password/reset/', ResetPasswordAPIView.as_view(), name='password-reset'),
-    path('api/password/reset/<str:token>/<str:uuid>/', PasswordResetConfirmAPIView.as_view(),
-                       name='password-reset-confirm'),
+    path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 
+    path('token/refresh', TokenRefreshView.as_view(), name='token_refresh'),
 
 ] + swagger_urls + static(MEDIA_URL, document_root=MEDIA_ROOT) + static(STATIC_URL, document_root=STATIC_ROOT)

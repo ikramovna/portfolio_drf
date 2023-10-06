@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework.serializers import ModelSerializer, Serializer, CharField, EmailField
 
-from apps.users.models import Project
+from apps.userss.models import Project
 
 
 class UserSerializer(ModelSerializer):

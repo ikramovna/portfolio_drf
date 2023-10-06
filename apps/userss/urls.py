@@ -1,8 +1,8 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from apps.users.views import (RegisterAPIView, LogoutAPIView, VerifyAccountAPIView, ProjectDetailRetrieveAPIView,
-                              ProjectSearchListAPIView, AllProjectModelViewSet, SendMailAPIView)
+from apps.userss.views import (RegisterAPIView, LogoutAPIView, VerifyAccountAPIView, ProjectDetailRetrieveAPIView,
+                               ProjectSearchListAPIView, AllProjectModelViewSet, SendMailAPIView)
 
 routers = DefaultRouter()
 routers.register('project', AllProjectModelViewSet, basename='project-list-add')
