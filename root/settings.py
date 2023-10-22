@@ -17,6 +17,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 MY_APPS = [
     'apps.users',
     'apps.portfolio',
+    'apps.send_email',
 
 ]
 
