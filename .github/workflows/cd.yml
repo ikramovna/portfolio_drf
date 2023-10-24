@@ -35,7 +35,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: test.cebilonsuvfiltr.uz
-          username: root
+          username: ubuntu
           key: ${{ secrets.KEY }}
           script: |
             cd portfolio_drf/
