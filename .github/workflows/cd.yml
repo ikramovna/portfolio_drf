@@ -34,7 +34,7 @@ jobs:
       - name: connect and deploy
         uses: appleboy/ssh-action@v1.0.0
         with:
-          host: test.cebilonsuvfiltr.uz
+          host: muslima.cebilonsuvfiltr.uz
           username: ubuntu
           key: ${{ secrets.KEY }}
           script: |
