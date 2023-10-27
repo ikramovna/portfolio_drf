@@ -7,3 +7,4 @@ class Project(Model):
     keyword = TextField()
     image = ImageField(upload_to='images/', blank=True, null=True)
     url = URLField()
+
